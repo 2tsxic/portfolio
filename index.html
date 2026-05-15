@@ -36,6 +36,27 @@
     overflow-x: hidden;
   }
 
+  /* ---- SCROLLBAR ---- */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79,141,134,0.45) rgba(14,14,14,0.55);
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: rgba(14,14,14,0.55);
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(79,141,134,0.35);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(79,141,134,0.55);
+  }
+
   /* ---- NAV ---- */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
