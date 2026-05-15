@@ -1106,6 +1106,11 @@ maintenance using the BingoPlus system</p>
   <p>© 2026 janricmiguel.</p>
 </footer>
 <script>
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
       const targetId = link.getAttribute('href').slice(1);
