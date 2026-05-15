@@ -215,7 +215,12 @@
     font-family: inherit;
     transition: opacity 0.2s, transform 0.15s;
   }
-  .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-primary:hover {
+    background: #fff;
+    color: #4f8d86;
+    opacity: 1;
+    transform: translateY(-2px);
+  }
   .btn-ghost {
     background: transparent;
     color: var(--text);
@@ -224,9 +229,18 @@
     font-size: 0.95rem; font-weight: 500;
     text-decoration: none; cursor: pointer;
     font-family: inherit;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
   }
   .btn-ghost:hover { border-color: var(--accent); background: rgba(255,77,0,0.06); }
+  .btn-white {
+    background: #fff;
+    color: #4f8d86;
+    border-color: #fff;
+  }
+  .btn-white:hover {
+    background: #4f8d86;
+    color: #fff;
+  }
   .cv-button {
     background: #4f8d86;
     border-color: #4f8d86;
@@ -809,12 +823,13 @@
       <!-- 🔧 EDIT: your title/headline -->
     </h1>
     <p class="hero-sub">
-      I pick up new skills quickly and am willing to take on challenges outside my scope to learn and deliver.
+      I turn wireframes into working prototypes using Figma and modern web technologies.
 
 
       <!-- 🔧 EDIT: your short bio -->
     </p>
     <div class="hero-actions">
+      <a href="#about" class="btn-ghost btn-white" style="font-weight: 700;">About Me</a>
       <a href="#projects" class="btn-primary">View My Work</a>
     </div>
     <div class="hero-social">
