@@ -369,7 +369,8 @@
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
     gap: 24px;
   }
 
@@ -586,13 +587,10 @@
   .exp-item {
     margin-bottom: 24px; padding: 22px 20px 24px; border-bottom: 1px solid var(--border);
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
-    min-height: 118px;
+    min-height: auto;
     border-radius: 18px;
     position: relative;
   }
-  /* text-only hover: no background/box change, only swap text */
-  .exp-item:hover { background: transparent; border-color: var(--border); transform: none; }
-  .exp-item:hover .exp-role { font-weight: 700; color: var(--text); }
   .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .exp-role { font-weight: 600; font-size: 1rem; }
   .exp-details {
@@ -605,14 +603,10 @@
   .exp-project { font-weight: 600; font-size: 1rem; }
   .exp-year { color: var(--text-muted); font-size: 0.82rem; margin-top: 2px; }
   .exp-desc {
-    max-height: 0; opacity: 0; color: var(--text-muted);
+    max-height: 200px; opacity: 1; color: var(--text-muted);
     margin-top: 14px; line-height: 1.75; overflow: hidden;
     transition: opacity 0.25s ease, max-height 0.25s ease;
   }
-  /* keep role/company/year visible on hover; only reveal description */
-  .exp-item:hover .exp-desc { opacity: 1; max-height: 200px; }
-  /* mobile click support: match hover style */
-  .exp-item.active .exp-desc { opacity: 1; max-height: 200px; }
 
   /* ---- CONTACT ---- */
   #contact { background: var(--bg); }
@@ -953,21 +947,22 @@ maintenance using the BingoPlus system</p>
      tools used, image URL, figma link, live link
      ============================================================ -->
 <section id="projects">
-  <div class="projects-header">
-    <div>
-      <h2 class="section-title"> My <em>Projects</em></h2>
+  <div class="projects-wrapper" style="max-width: 800px; margin: 0 auto;">
+    <div class="projects-header">
+      <div>
+        <h2 class="section-title"> My <em>Projects</em></h2>
+      </div>
+      <!---->
+      <div class="filter-bar">
+        <!-- 🔧 EDIT: Add/change filter categories 
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProjects('figma', this)">Figma</button>
+        <button class="filter-btn" onclick="filterProjects('mitappinventor', this)">Mit App Inventor</button>
+        
+      </div> -->
     </div>
-    <!---->
-    <div class="filter-bar">
-      <!-- 🔧 EDIT: Add/change filter categories 
-      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-btn" onclick="filterProjects('figma', this)">Figma</button>
-      <button class="filter-btn" onclick="filterProjects('mitappinventor', this)">Mit App Inventor</button>
-      
-    </div> -->
-  </div>
 
-  <div class="projects-grid" id="projectsGrid">
+    <div class="projects-grid" id="projectsGrid">
 
     <!-- ==========================================
          PROJECT CARD 1
@@ -1022,6 +1017,7 @@ maintenance using the BingoPlus system</p>
 
     <!-- 🔧 ADD MORE CARDS: copy a card block above and change content -->
 
+  </div>
   </div>
 </section>
 
@@ -1307,7 +1303,8 @@ function closeModalOnBg(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// Mobile click support for experience items
+// Mobile click support for experience items - DISABLED (descriptions now always visible)
+/*
 document.querySelectorAll('.exp-item').forEach(item => {
   item.addEventListener('click', function(e) {
     if (e.target.tagName === 'A') return;
@@ -1326,6 +1323,7 @@ document.addEventListener('click', function(e) {
     });
   }
 });
+*/
 
 function showPopup(message, isError = false) {
   const popup = document.getElementById('popupMessage');
